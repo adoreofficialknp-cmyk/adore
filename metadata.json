@@ -1,0 +1,7 @@
+{
+  "name": "Remix: Remix: Remix: Remix: Adore Official",
+  "description": "Adore is a premium mobile application for luxury jewellery, offering an exquisite collection of Gold, Platinum, Silver, and Diamond pieces with a seamless shopping experience.",
+  "requestFramePermissions": [
+    "geolocation"
+  ]
+}

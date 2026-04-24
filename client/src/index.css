@@ -1,0 +1,428 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Jost:wght@300;400;500;600;700&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --pink:        #C2185B;
+    --pink-light:  #E91E8C;
+    --pink-dark:   #880E4F;
+    --pink-pale:   #FCE4EC;
+    --pink-border: #F48FB1;
+    --pink-bg:     #FFF0F5;
+    --pink-blush:  #FFF8FB;
+
+    --gold:        #C2185B;
+    --gold-light:  #E91E8C;
+    --gold-dark:   #880E4F;
+    --gold-bg:     #FFF0F5;
+    --gold-border: #F48FB1;
+
+    --ink:    #1C1C1E;
+    --ink-80: rgba(28,28,30,.8);
+    --ink-60: rgba(28,28,30,.6);
+    --ink-40: rgba(28,28,30,.4);
+    --ink-20: rgba(28,28,30,.2);
+    --ink-10: rgba(28,28,30,.1);
+    --ink-5:  rgba(28,28,30,.05);
+
+    --festive-deep:    #880E4F;
+    --festive-gold:    #C2185B;
+    --festive-saffron: #E91E8C;
+  }
+
+  * { -webkit-tap-highlight-color: transparent; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Jost', sans-serif;
+    background: #FFF5F8;
+    color: var(--ink);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+  }
+  input, button, textarea, select { font-family: inherit; }
+  img { display: block; max-width: 100%; }
+}
+
+@layer components {
+  .serif { font-family: 'Cormorant Garamond', serif; }
+
+  .btn-gold {
+    @apply inline-flex items-center justify-center gap-2 border-none cursor-pointer font-semibold transition-all duration-200;
+    background: #D4A96A;
+    color: #4A2C0A;
+    font-family: 'Jost', sans-serif;
+    font-size: 12px;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    padding: 14px 32px;
+    border-radius: 2px;
+  }
+  .btn-gold:hover { background: #B8894A; color: #fff; }
+  .btn-gold:active { opacity: .85; }
+
+  .btn-pink {
+    @apply inline-flex items-center justify-center gap-2 border-none cursor-pointer font-semibold transition-all duration-200;
+    background: #D4A96A;
+    color: #4A2C0A;
+    font-family: 'Jost', sans-serif;
+    font-size: 12px;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    padding: 14px 32px;
+    border-radius: 2px;
+  }
+  .btn-pink:hover { background: #B8894A; color: #fff; }
+
+  .btn-dark {
+    @apply inline-flex items-center justify-center gap-2 border-none cursor-pointer font-semibold transition-all duration-200;
+    background: var(--ink);
+    color: #fff;
+    font-family: 'Jost', sans-serif;
+    font-size: 12px;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    padding: 14px 32px;
+    border-radius: 2px;
+  }
+  .btn-dark:hover { background: rgba(28,28,30,.85); }
+
+  .btn-outline {
+    @apply inline-flex items-center justify-center gap-2 cursor-pointer font-semibold transition-all duration-200;
+    background: transparent;
+    color: var(--ink);
+    border: 1.5px solid var(--ink-20);
+    font-family: 'Jost', sans-serif;
+    font-size: 12px;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    padding: 13px 28px;
+    border-radius: 2px;
+  }
+  .btn-outline:hover { border-color: var(--ink); }
+
+  .btn-outline-gold {
+    @apply inline-flex items-center justify-center gap-2 cursor-pointer font-semibold transition-all duration-200;
+    background: transparent;
+    color: var(--pink);
+    border: 1.5px solid var(--pink);
+    font-family: 'Jost', sans-serif;
+    font-size: 12px;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    padding: 13px 28px;
+    border-radius: 2px;
+  }
+  .btn-outline-gold:hover { background: var(--pink); color: #fff; }
+
+  .input-field {
+    @apply w-full outline-none transition-all duration-200;
+    background: #fff;
+    border: 1.5px solid var(--ink-10);
+    border-radius: 2px;
+    padding: 13px 16px;
+    font-family: 'Jost', sans-serif;
+    font-size: 14px;
+    color: var(--ink);
+  }
+  .input-field::placeholder { color: var(--ink-40); }
+  .input-field:focus {
+    border-color: var(--pink);
+    box-shadow: 0 0 0 3px rgba(194,24,91,.1);
+  }
+
+  .section-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(28px, 3.5vw, 42px);
+    font-weight: 600;
+    color: var(--ink);
+    line-height: 1.1;
+  }
+  .section-subtitle {
+    font-size: 13px;
+    letter-spacing: .06em;
+    color: var(--ink-60);
+    font-weight: 400;
+  }
+
+  .badge-new {
+    background: var(--pink);
+    color: #fff;
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    padding: 4px 10px;
+    border-radius: 1px;
+  }
+  .badge-off {
+    background: var(--ink);
+    color: #fff;
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    padding: 4px 10px;
+    border-radius: 1px;
+  }
+  .badge-festive {
+    background: var(--pink-dark);
+    color: #FFB6C1;
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    padding: 4px 10px;
+    border-radius: 1px;
+  }
+
+  .toast {
+    position: fixed;
+    bottom: 88px;
+    left: 50%;
+    transform: translateX(-50%) translateY(0);
+    background: var(--pink-dark);
+    color: #fff;
+    font-size: 13px;
+    font-weight: 500;
+    padding: 12px 24px;
+    border-radius: 2px;
+    z-index: 9999;
+    pointer-events: none;
+    white-space: nowrap;
+    opacity: 0;
+    transition: opacity .25s, transform .25s;
+    letter-spacing: .02em;
+  }
+  .toast.show { opacity: 1; transform: translateX(-50%) translateY(-4px); }
+}
+
+/* ── SILVER THEME ─────────────────────────────────────────────────────── */
+[data-theme="silver"] {
+  --pink:        #546E7A;
+  --pink-light:  #78909C;
+  --pink-dark:   #37474F;
+  --pink-pale:   #ECEFF1;
+  --pink-border: #B0BEC5;
+  --pink-bg:     #F5F7F8;
+  --pink-blush:  #FAFBFC;
+
+  --gold:        #546E7A;
+  --gold-light:  #78909C;
+  --gold-dark:   #37474F;
+  --gold-bg:     #F5F7F8;
+  --gold-border: #B0BEC5;
+
+  --festive-deep:    #37474F;
+  --festive-gold:    #546E7A;
+  --festive-saffron: #78909C;
+}
+
+[data-theme="silver"] body {
+  background: #F5F7F8;
+}
+
+[data-theme="silver"] .skeleton {
+  background: linear-gradient(90deg, #ECEFF1 25%, #CFD8DC 50%, #ECEFF1 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.4s infinite;
+}
+
+[data-theme="silver"] ::-webkit-scrollbar-thumb {
+  background: rgba(84,110,122,.25);
+}
+
+[data-theme="silver"] .btn-pink,
+[data-theme="silver"] .btn-gold {
+  background: #546E7A;
+}
+[data-theme="silver"] .btn-pink:hover,
+[data-theme="silver"] .btn-gold:hover {
+  background: #37474F;
+}
+
+[data-theme="silver"] .input-field:focus {
+  border-color: #546E7A;
+  box-shadow: 0 0 0 3px rgba(84,110,122,.1);
+}
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: rgba(194,24,91,.25); border-radius: 4px; }
+
+/* Hide scrollbar for horizontal scroll containers */
+.scroll-x-hidden::-webkit-scrollbar { display: none; }
+.scroll-x-hidden { -ms-overflow-style: none; scrollbar-width: none; }
+
+@keyframes spin { to { transform: rotate(360deg); } }
+@keyframes fadeUp { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+@keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+@keyframes shimmer { from { background-position: -200% 0; } to { background-position: 200% 0; } }
+@keyframes countdown-pulse { 0%,100% { transform: scale(1); } 50% { transform: scale(1.04); } }
+
+.spinner { animation: spin .8s linear infinite; }
+.animate-fade-up { animation: fadeUp .4s cubic-bezier(.25,.1,.25,1) forwards; }
+.animate-fade-in { animation: fadeIn .3s ease forwards; }
+
+.skeleton {
+  background: linear-gradient(90deg, #FCE4EC 25%, #F8BBD0 50%, #FCE4EC 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.4s infinite;
+}
+
+/* ── HERO BANNER ──────────────────────────────────────────────────────── */
+.hero-slider {
+  /* Full-bleed: never constrain width or add centering margin */
+  position: relative !important;
+  overflow: hidden !important;
+  display: block !important;
+  width: 100% !important;
+  /* Single source-of-truth height — do NOT set height here;
+     the inline style on the <section> owns it so both mobile & desktop
+     can use their own clamp without a CSS !important war */
+}
+
+/* Images inside the hero must fill the box without any cap */
+.hero-slider img {
+  position: absolute !important;
+  inset: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  max-width: none !important;   /* override global img { max-width:100% } */
+  object-fit: cover !important;
+  object-position: center !important;
+  display: block !important;
+}
+
+/* Slide wrapper divs fill the entire container */
+.hero-slider > div[aria-hidden],
+.hero-slider > div:not([aria-hidden]):not(.hero-overlay):not(.hero-content) {
+  position: absolute !important;
+  inset: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  max-width: none !important;
+  box-sizing: border-box !important;
+}
+
+/* Overlay gradient layer */
+.hero-overlay {
+  position: absolute !important;
+  inset: 0 !important;
+  z-index: 2 !important;
+  pointer-events: none !important;
+}
+
+/* Text content layer — centred, never overflows */
+.hero-content {
+  position: absolute !important;
+  inset: 0 !important;
+  z-index: 3 !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: center !important;
+  align-items: center !important;
+  text-align: center !important;
+  padding: 0 5% !important;
+  box-sizing: border-box !important;
+  overflow: hidden !important;
+}
+
+/* No gap between hero and the next section */
+.hero-slider + * { margin-top: 0 !important; }
+
+@media (max-width: 768px) {
+  .home-two-col { grid-template-columns: 1fr !important; }
+  .home-cats { display: none !important; }
+  .home-trust { grid-template-columns: 1fr !important; }
+  .promo-banners { grid-template-columns: 1fr !important; }
+  
+  /* Keep product grids as 2 columns on mobile */
+  .grid-2-col-mobile {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 10px !important;
+    align-items: start !important;
+  }
+  /* Wishlist / BondShop auto-fill grids → force 2 col on mobile */
+  .product-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 10px !important;
+    align-items: start !important;
+  }
+
+  /* 1. SHORTEN BANNER HEIGHT */
+  .hero-slider, 
+  .hero-slider .hero-overlay,
+  .hero-slider > div {
+    height: 250px !important;
+  }
+
+  /* 2. ADD WHITE FADE ON THE RIGHT */
+  .hero-slider .hero-overlay {
+    background-image: linear-gradient(
+      to left, 
+      rgba(255, 255, 255, 0.9) 0%, 
+      rgba(255, 255, 255, 0.5) 60%, 
+      rgba(255, 255, 255, 0) 100%
+    ) !important;
+    background-color: transparent !important;
+    width: 100% !important;
+    pointer-events: none !important;
+  }
+
+  /* 3. BRING TEXT TO EXTREME RIGHT & CENTER VERTICALLY */
+  .hero-slider .hero-content {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: flex-end !important;
+    text-align: right !important;
+    left: auto !important;
+    right: 0 !important;
+    width: auto !important;
+    max-width: 80% !important;
+    padding: 0 20px !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    height: auto !important;
+    overflow: visible !important;
+  }
+
+  /* 4. SCALE DOWN TEXT SIZES & FORCE RIGHT MARGINS */
+  .hero-slider .hero-content h1 {
+    font-size: 20px !important;
+    line-height: 1.2 !important;
+    color: #333 !important;
+    margin: 0 0 8px auto !important;
+    white-space: normal !important;
+    word-wrap: break-word !important;
+  }
+  .hero-slider .hero-content p {
+    font-size: 11px !important;
+    line-height: 1.4 !important;
+    color: #555 !important;
+    margin: 0 0 15px auto !important;
+    white-space: normal !important;
+  }
+
+  /* 5. ADJUST BUTTON/ACTION CONTAINER */
+  .hero-slider .hero-content div {
+    display: flex !important;
+    justify-content: flex-end !important;
+    flex-wrap: wrap !important;
+    gap: 10px !important;
+    width: 100% !important;
+    margin-left: auto !important;
+  }
+}
+/* Tablet: 3 columns — matches GIVA layout */
+@media (min-width: 769px) {
+  .hero-slider { height: clamp(320px, 45vw, 520px) !important; }
+  .grid-2-col-mobile { grid-template-columns: repeat(3, 1fr) !important; align-items: start !important; gap: 16px !important; }
+  .product-grid { grid-template-columns: repeat(3, 1fr) !important; align-items: start !important; gap: 16px !important; }
+}
+/* Desktop: 4 columns */
+@media (min-width: 1200px) {
+  .grid-2-col-mobile { grid-template-columns: repeat(4, 1fr) !important; align-items: start !important; }
+  .product-grid { grid-template-columns: repeat(4, 1fr) !important; align-items: start !important; }
+}

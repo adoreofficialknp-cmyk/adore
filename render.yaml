@@ -1,0 +1,40 @@
+services:
+  - type: web
+    name: adore-jewellery
+    env: node
+    region: singapore
+    plan: free
+    rootDir: .
+    buildCommand: "npm install --prefix server && cd server && npx prisma generate && cd .. && npm install --prefix client --include=dev && npm run build --prefix client"
+    startCommand: node server/app.js
+    healthCheckPath: /health
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 10000
+      - key: DATABASE_URL
+        fromDatabase:
+          name: adore-db
+          property: connectionString
+      - key: JWT_SECRET
+        generateValue: true
+      - key: CLIENT_URL
+        value: https://adore-jewellery.onrender.com
+      - key: CLOUDINARY_URL
+        sync: false
+      - key: RAZORPAY_KEY
+        sync: false
+      - key: RAZORPAY_SECRET
+        sync: false
+      - key: CASHFREE_APP_ID
+        sync: false
+      - key: CASHFREE_SECRET
+        sync: false
+
+databases:
+  - name: adore-db
+    plan: free
+    region: singapore
+    databaseName: adore
+    user: adore_user
